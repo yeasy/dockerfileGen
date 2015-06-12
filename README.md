@@ -1,9 +1,11 @@
-# dockerfileGen
-A smart web-based tool to generate best-practice Dockerfile based on your input information.
+dockerfileGen
+===
 
-Thanks all [contributors]((https://github.com/yeasy/dockerfileGen/graphs/contributors).
+A smart web-based tool to generate best-practical Dockerfile based on user input information.
 
-# Revision History
+Thanks all [contributors](https://github.com/yeasy/dockerfileGen/graphs/contributors).
+
+## Revision History
 * v0.1: 2015-06-12
     * Finish the basic framework
 
@@ -16,13 +18,8 @@ git clone https://github.com/yeasy/dockerfileGen.git
 Then open index.html using any web browser ([Google Chrome](http://www.google.com/chrome/) is recommended).
 
 
-
-
 # Snapshot
 TODO.
-
-
-
 
 
 # Design
@@ -30,6 +27,9 @@ TODO.
 ## Philosophies
 * Keep it simple to open for use.
 * Let code take as many responsibilities as possible.
+
+## Techniques
+* [Bootstrap 3](http://getbootstrap.com)
 
 
 # Contribution
