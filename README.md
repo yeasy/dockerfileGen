@@ -9,7 +9,7 @@ Thanks all [contributors](https://github.com/yeasy/dockerfileGen/graphs/contribu
 * v0.1: 2015-06-12
     * Finish the basic framework
 
-# Installation
+## Installation
 
 ```sh
 git clone https://github.com/yeasy/dockerfileGen.git
@@ -18,23 +18,23 @@ git clone https://github.com/yeasy/dockerfileGen.git
 Then open index.html using any web browser ([Google Chrome](http://www.google.com/chrome/) is recommended).
 
 
-# Snapshot
+## Snapshot
 TODO.
 
 
-# Design
+## Design
 
-## Philosophies
+### Philosophies
 * Keep it simple to open for use.
 * Let code take as many responsibilities as possible.
 
-## Techniques
+### Techniques
 * [Bootstrap 3](http://getbootstrap.com)
 
 
-# Contribution
+## Contribution
 
-## Steps
+### Steps
 * Fork the project as your own repository, e.g., `user/dockerfileGen`, then clone it to local server and set basic information.
 ```
 $ git clone git@github.com:user/dockerfileGen.git
