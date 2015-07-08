@@ -9,6 +9,11 @@ Thanks all [contributors](https://github.com/yeasy/dockerfileGen/graphs/contribu
 * v0.1: 2015-06-12
     * Finish the basic framework
 
+## Feature
+* Open to use without any third-party lib
+* Automatically format and adjust the Dockerfile instructions
+* Download the generated Dockerfile (TODO)
+
 ## Installation
 
 ```sh
