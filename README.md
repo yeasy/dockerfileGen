@@ -24,7 +24,7 @@ Then open `index.html` using any web browser ([Google Chrome](http://www.google.
 
 
 ## Snapshot
-TODO.
+[snapshot](img/snapshot.png).
 
 
 ## Design
