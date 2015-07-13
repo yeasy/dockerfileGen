@@ -6,8 +6,10 @@ A smart web-based tool to generate best-practical Dockerfile based on user input
 Thanks all [contributors](https://github.com/yeasy/dockerfileGen/graphs/contributors).
 
 ## Revision History
+* v0.2: 2015-07-12
+    * Finish most Dockerfile commands.
 * v0.1: 2015-06-12
-    * Finish the basic framework
+    * Finish the basic framework.
 
 ## Feature
 * Open to use without any third-party lib
@@ -24,7 +26,7 @@ Then open `index.html` using any web browser ([Google Chrome](http://www.google.
 
 
 ## Snapshot
-![snapshot](img/snapshot.png).
+![snapshot](img/snapshot.png)
 
 
 ## Design
