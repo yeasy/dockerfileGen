@@ -63,6 +63,21 @@
                 result += "ENV " + env + "\n\n";
             }
 
+            /* Check workdir*/
+            var workdir = '';
+            for (var x = 1; x < max_fields; x++) {
+                try {
+                    workdir = document.getElementById("workdir" + x).value;
+                    if (workdir != null && workdir != '') {
+                        result += "WORKDIR " + workdir + "\n";
+                    }
+                }
+                catch (TypeError) {
+                    result += "\n";
+                    continue;
+                }
+            }
+
             /* Check run*/
             var run = document.getElementById("run").value;
             if (run != null && run != '') {
@@ -82,6 +97,32 @@
                     continue;
                 }
             }
+
+            /* Check add*/
+            var add_src = document.getElementById("add_src").value;
+            var add_dest = document.getElementById("add_dest").value;
+            if (add_src != null && add_dest != null && add_src != '' && add_dest != '') {
+                result += "ADD " + add_src + " " + add_dest + "\n\n";
+            }
+
+            /* Check entrypoint*/
+            var entrypoint = document.getElementById("entrypoint").value;
+            if (entrypoint != null && entrypoint != '') {
+                result += "ENTRYPOINT " + entrypoint + "\n\n";
+            }
+
+            /* Check volume*/
+            var volume = document.getElementById("volume").value;
+            if (volume != null && volume != '') {
+                result += "VOLUME " + volume + "\n\n";
+            }
+
+            /* Check user*/
+            var user = document.getElementById("user").value;
+            if (user != null && user != '') {
+                result += "USER " + user + "\n\n";
+            }
+
             /* Check cmd*/
             var manual = document.getElementById("manual").value;
             if (manual != null && manual != '') {
@@ -112,6 +153,26 @@
             });
 
             $(wrapper_expose).on("click", ".remove_field_expose", function (e) { //user click on remove text
+                e.preventDefault();
+                $(this).parent('div').remove();
+                x--;
+            })
+        });
+
+        $(document).ready(function () {
+            var wrapper_workdir = $(".input_fields_wrap_workdir"); //Fields wrapper
+            var add_button_workdir = $(".add_field_button_workdir"); //Add button ID
+
+            var x = 1; //initial text box count
+            $(add_button_workdir).click(function (e) { //on add input button click
+                e.preventDefault();
+                if (x < max_fields) { //max input box allowed
+                    x++; //text box increment
+                    $(wrapper_workdir).append('<div><input type="text" id="workdir' + x + '" class="form-control col-sm-2"/><a href="#" class="remove_field_workdir">Remove</a></div>'); //add input box
+                }
+            });
+
+            $(wrapper_workdir).on("click", ".remove_field_workdir", function (e) { //user click on remove text
                 e.preventDefault();
                 $(this).parent('div').remove();
                 x--;
@@ -190,7 +251,7 @@
         <div class="form-group">
             <label class="control-label col-sm-2">RUN: </label>
             <div class="col-sm-6">
-                <input type="text" id="run" class="form-control"
+                <input type="text" id="run" class="form-control col-sm-2"
                        placeholder="apt-get update && apt-get install -y supervisor"/><br>
             </div>
         </div>
@@ -199,7 +260,52 @@
             <label class="control-label col-sm-2">ENV: </label>
 
             <div class="col-sm-6">
-                <input type="text" id="env" class="form-control" value="DEBIAN_FRONTEND noninteractive"/><br>
+                <input type="text" id="env" class="form-control col-sm-2" value="DEBIAN_FRONTEND noninteractive"/><br>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2">WORKDIR: </label>
+            <div class="col-sm-2 input_fields_wrap_workdir">
+                <input type="text" id="workdir1" class="form-control" placeholder="/path/to/workdir"/>
+            </div>
+            <button type="button" class="btn btn-default btn-success add_field_button_workdir">+</button>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2">ADD: </label>
+
+            <div class="col-sm-2">
+                <p>
+                    src: <input type="text" id="add_src" class="form-control col-sm-2" placeholder="."/>
+                </p>           
+                <p> 
+                    dest: <input type="text" id="add_dest" class="form-control col-sm-2" placeholder="/app/src"/>
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2">ENTRYPOINT: </label>
+            <div class="col-sm-6">
+                <input type="text" id="entrypoint" class="form-control col-sm-2" 
+                       placeholder="['executable', 'param1', 'param2']"/><br>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2">VOLUME: </label>
+            <div class="col-sm-2">
+                <input type="text" id="volume" class="form-control col-sm-2" 
+                       placeholder="['/data']"/><br>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2">USER: </label>
+            <div class="col-sm-2">
+                <input type="text" id="user" class="form-control" 
+                       placeholder="deamon"/><br>
             </div>
         </div>
 
