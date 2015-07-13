@@ -48,13 +48,13 @@
             /* Check baseimage*/
             var baseimage = document.getElementById("baseimage").value;
             if (baseimage != null && baseimage != '') {
-                result += "FROM " + baseimage + "\n\n";
+                result += "FROM " + baseimage + "\n";
             }
 
             /* Check maintainer*/
             var maintainer = document.getElementById("maintainer").value;
             if (maintainer != null && maintainer != '') {
-                result += "MAINTAINER " + maintainer + "\n\n";
+                result += "MAINTAINER " + maintainer + "\n";
             }
 
             /* Check env*/
@@ -97,10 +97,9 @@
             }
 
             /* Check add*/
-            var add_src = document.getElementById("add_src").value;
-            var add_dest = document.getElementById("add_dest").value;
-            if (add_src != null && add_dest != null && add_src != '' && add_dest != '') {
-                result += "ADD " + add_src + " " + add_dest + "\n\n";
+            var add = document.getElementById("add").value;
+            if (add != null && add != '') {
+                result += "ADD " + add + "\n\n";
             }
 
             /* Check entrypoint*/
@@ -224,16 +223,17 @@
         </div>
 
         <div class="form-group">
-            <label class="control-label col-sm-2">Boot command*: </label>
+            <label class="control-label col-sm-2">Maintainer: </label>
             <div class="col-sm-2">
-                <input type="text" id="cmd" class="form-control" value="['echo', 'hello world']"/><br>
+                <input type="text" id="maintainer" class="form-control col-sm-2" value="maintainer"/>
             </div>
         </div>
 
         <div class="form-group">
-            <label class="control-label col-sm-2">Maintainer: </label>
+            <label class="control-label col-sm-2">USER: </label>
             <div class="col-sm-2">
-                <input type="text" id="maintainer" class="form-control col-sm-2" value="maintainer"/>
+                <input type="text" id="user" class="form-control" 
+                       value="daemon"/><br>
             </div>
         </div>
 
@@ -245,76 +245,68 @@
             <button type="button" class="btn btn-default btn-success add_field_button_expose">+</button>
         </div>
 
-
-        <div class="form-group">
-            <label class="control-label col-sm-2">RUN: </label>
-            <div class="col-sm-6">
-                <input type="text" id="run" class="form-control col-sm-2"
-                       placeholder="apt-get update && apt-get install -y supervisor"/><br>
-            </div>
-        </div>
-
         <div class="form-group">
             <label class="control-label col-sm-2">ENV: </label>
-
-            <div class="col-sm-6">
+            <div class="col-sm-4">
                 <input type="text" id="env" class="form-control col-sm-2" value="DEBIAN_FRONTEND noninteractive"/><br>
             </div>
         </div>
 
         <div class="form-group">
             <label class="control-label col-sm-2">WORKDIR: </label>
-            <div class="col-sm-2 input_fields_wrap_workdir">
+            <div class="col-sm-4 input_fields_wrap_workdir">
                 <input type="text" id="workdir1" class="form-control" placeholder="/path/to/workdir"/>
             </div>
             <button type="button" class="btn btn-default btn-success add_field_button_workdir">+</button>
         </div>
 
         <div class="form-group">
-            <label class="control-label col-sm-2">ADD: </label>
-
-            <div class="col-sm-2">
-                <p>
-                    src: <input type="text" id="add_src" class="form-control col-sm-2" placeholder="."/>
-                </p>           
-                <p> 
-                    dest: <input type="text" id="add_dest" class="form-control col-sm-2" placeholder="/app/src"/>
-                </p>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="control-label col-sm-2">ENTRYPOINT: </label>
-            <div class="col-sm-6">
-                <input type="text" id="entrypoint" class="form-control col-sm-2" 
-                       placeholder="['executable', 'param1', 'param2']"/><br>
-            </div>
-        </div>
-
-        <div class="form-group">
             <label class="control-label col-sm-2">VOLUME: </label>
-            <div class="col-sm-2">
+            <div class="col-sm-4">
                 <input type="text" id="volume" class="form-control col-sm-2" 
                        placeholder="['/data']"/><br>
             </div>
         </div>
 
         <div class="form-group">
-            <label class="control-label col-sm-2">USER: </label>
-            <div class="col-sm-2">
-                <input type="text" id="user" class="form-control" 
-                       placeholder="daemon"/><br>
+            <label class="control-label col-sm-2">ADD: </label>
+            <div class="col-sm-4">
+                <input type="text" id="add" class="form-control col-sm-2" placeholder="./:/data/"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2">RUN: </label>
+            <div class="col-sm-4">
+                <input type="text" id="run" class="form-control col-sm-2"
+                       placeholder="apt-get update && apt-get install -y supervisor"/><br>
             </div>
         </div>
 
         <div class="form-group">
             <label class="control-label col-sm-2">Manual Ops: </label>
 
-            <div class="col-sm-6">
+            <div class="col-sm-4">
                 <textarea class="form-control" rows="3" cols="80" id="manual"
                           placeholder="Write your specific commands here"></textarea>
             </div>
         </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2">ENTRYPOINT: </label>
+            <div class="col-sm-4">
+                <input type="text" id="entrypoint" class="form-control col-sm-2" 
+                       placeholder="['executable', 'param1', 'param2']"/><br>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2">Boot command*: </label>
+            <div class="col-sm-4">
+                <input type="text" id="cmd" class="form-control" value="['echo', 'hello world']"/><br>
+            </div>
+        </div>
+
     </form>
 
     <div class="col-sm-2">
@@ -330,8 +322,8 @@
 
     <br>
 
-    <div class="col-sm-8">
-        <textarea class="form-control" rows="14" cols="80" id="result" placeholder="generated results"></textarea>
+    <div class="col-sm-6">
+        <textarea class="form-control" rows="14" cols="60" id="result" placeholder="generated results"></textarea>
     </div>
 
 </div>
