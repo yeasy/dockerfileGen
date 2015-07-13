@@ -9,13 +9,18 @@ Thanks all [contributors](https://github.com/yeasy/dockerfileGen/graphs/contribu
 * v0.1: 2015-06-12
     * Finish the basic framework
 
+## Feature
+* Open to use without any third-party lib
+* Automatically format and adjust the Dockerfile instructions
+* Download the generated Dockerfile (TODO)
+
 ## Installation
 
 ```sh
 git clone https://github.com/yeasy/dockerfileGen.git
 ```
 
-Then open index.html using any web browser ([Google Chrome](http://www.google.com/chrome/) is recommended).
+Then open `index.html` using any web browser ([Google Chrome](http://www.google.com/chrome/) is recommended).
 
 
 ## Snapshot
@@ -25,8 +30,8 @@ TODO.
 ## Design
 
 ### Philosophies
-* Keep it simple to open for use.
-* Let code take as many responsibilities as possible.
+* Keep it simple, and open for use.
+* Reduce human efforts.
 
 ### Techniques
 * [Bootstrap 3](http://getbootstrap.com)
