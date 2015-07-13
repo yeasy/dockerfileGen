@@ -120,7 +120,7 @@
                 result += "USER " + user + "\n\n";
             }
 
-            /* Check cmd*/
+            /* Check manual*/
             var manual = document.getElementById("manual").value;
             if (manual != null && manual != '') {
                 result += manual + "\n";
@@ -152,7 +152,7 @@
             $(wrapper_expose).on("click", ".remove_field_expose", function (e) { //user click on remove text
                 e.preventDefault();
                 $(this).parent('div').remove();
-                x--;
+                //x--;  // TODO: we need more accurate method to tracking the existing ids using x.
             })
         });
 
@@ -172,7 +172,7 @@
             $(wrapper_workdir).on("click", ".remove_field_workdir", function (e) { //user click on remove text
                 e.preventDefault();
                 $(this).parent('div').remove();
-                x--;
+                //x--;
             })
         });
     </script>
