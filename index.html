@@ -134,6 +134,16 @@
             }
 
             document.getElementById("result").value = result
+
+            /* Save as file*/
+            if (document.getElementById("save").checked) {
+                var hiddenElement = document.createElement('a');
+                hiddenElement.href = 'data:attachment/text,' + encodeURI(result);
+                hiddenElement.target = '_blank';
+                hiddenElement.download = 'dockerfile.txt';
+                hiddenElement.click();
+            }
+
         }
 
         $(document).ready(function () {
@@ -312,7 +322,7 @@
     <div class="col-sm-2">
         <div class="checkbox">
             <label>
-                <input type="checkbox"> Save into file
+                <input type="checkbox" id="save"> Save into file
             </label>
         </div>
         <div class="row">
